@@ -54,3 +54,17 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.25);
 }
+
+/* ==========================================================================
+   Micro-Frontend Integration: Hide Remote Inner Headers inside Shell Viewport
+   ========================================================================== */
+.remote-viewport .header,
+.remote-viewport .top-header,
+.remote-viewport .top-nav {
+  display: none !important;
+}
+
+.remote-viewport .catalog-layout {
+  padding-top: 32px !important;
+}
+
