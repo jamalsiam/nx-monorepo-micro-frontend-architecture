@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { UserStateService } from '../services/user-state.service';
 
 @Component({
   selector: 'app-user-setting',
@@ -12,10 +13,10 @@ import { FormsModule } from '@angular/forms';
         <div>
           <span class="page-tag">User Management</span>
           <h1 class="page-title">User Settings</h1>
-          <p class="page-desc">Manage system administrator profiles, security credentials, and access permissions.</p>
+          <p class="page-desc">Manage system administrator profiles, security credentials, and access permissions across all micro-frontends.</p>
         </div>
         <button class="save-btn" (click)="save()">
-          {{ saved() ? '✓ Changes Saved!' : 'Save Settings' }}
+          {{ saved() ? '✓ Changes Saved to Monorepo!' : 'Save Settings' }}
         </button>
       </div>
 
@@ -26,28 +27,28 @@ import { FormsModule } from '@angular/forms';
             <div class="icon-box">👤</div>
             <div>
               <h2 class="card-title">Profile Information</h2>
-              <p class="card-desc">Personal administrator contact and role details</p>
+              <p class="card-desc">Personal administrator contact and role details (Synchronized Globally)</p>
             </div>
           </div>
 
           <div class="card-body">
             <div class="profile-row">
-              <div class="avatar">JS</div>
+              <div class="avatar">{{ userState.user().avatarText }}</div>
               <div class="avatar-info">
-                <button class="action-btn-sm">Change Avatar</button>
-                <span class="sub-text">Recommended: 400x400 PNG or WebP</span>
+                <span class="avatar-name">{{ userState.user().name }}</span>
+                <span class="sub-text">Synchronized via Monorepo Global Store (Port 4202)</span>
               </div>
             </div>
 
             <div class="input-grid">
               <div class="form-group">
                 <label>Admin Name</label>
-                <input type="text" [(ngModel)]="name" class="input" />
+                <input type="text" [(ngModel)]="name" class="input" placeholder="Admin Name" />
               </div>
 
               <div class="form-group">
                 <label>Official Email</label>
-                <input type="email" [(ngModel)]="email" class="input" />
+                <input type="email" [(ngModel)]="email" class="input" placeholder="Official Email" />
               </div>
             </div>
 
@@ -344,8 +345,10 @@ import { FormsModule } from '@angular/forms';
   `]
 })
 export class UserSettingComponent {
-  name = 'Jamal Siam';
-  email = 'jamal@nexus.io';
+  readonly userState = inject(UserStateService);
+
+  name = '';
+  email = '';
   role = 'Super Administrator';
   twoFactor = true;
   autoLogout = true;
@@ -353,8 +356,23 @@ export class UserSettingComponent {
 
   saved = signal(false);
 
+  constructor() {
+    // Keep local form in sync whenever global user state updates
+    effect(() => {
+      const u = this.userState.user();
+      this.name = u.name;
+      this.email = u.email;
+      this.role = u.role;
+    });
+  }
+
   save() {
+    this.userState.updateUser({
+      name: this.name.trim(),
+      email: this.email.trim(),
+      role: this.role
+    });
     this.saved.set(true);
-    setTimeout(() => this.saved.set(false), 2000);
+    setTimeout(() => this.saved.set(false), 2500);
   }
 }

@@ -1,6 +1,7 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { UserStateService } from './services/user-state.service';
 
 export interface CatalogItem {
   id: number;
@@ -25,6 +26,7 @@ export interface CatalogItem {
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  readonly userState = inject(UserStateService);
   searchTerm = signal<string>('');
   selectedCategory = signal<string>('All');
   sortBy = signal<'featured' | 'price-asc' | 'price-desc' | 'rating'>('featured');

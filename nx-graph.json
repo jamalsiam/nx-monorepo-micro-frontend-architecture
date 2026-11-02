@@ -1,0 +1,395 @@
+{
+  "graph": {
+    "nodes": {
+      "@shophub/shared-user-state": {
+        "name": "@shophub/shared-user-state",
+        "type": "lib",
+        "data": {
+          "root": "libs/shared/user-state",
+          "name": "@shophub/shared-user-state",
+          "tags": [
+            "npm:public"
+          ],
+          "metadata": {
+            "targetGroups": {},
+            "js": {
+              "packageName": "@shophub/shared-user-state",
+              "packageVersion": "0.0.1",
+              "packageMain": "src/index.ts",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "targets": {},
+          "implicitDependencies": []
+        }
+      },
+      "online-shopping": {
+        "name": "online-shopping",
+        "type": "app",
+        "data": {
+          "root": "online-shopping",
+          "name": "online-shopping",
+          "tags": [
+            "npm:private"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "ng",
+                "start",
+                "build",
+                "watch",
+                "test"
+              ]
+            },
+            "js": {
+              "packageName": "online-shopping",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "targets": {
+            "ng": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng",
+                "runCommand": "npm run ng"
+              },
+              "options": {
+                "script": "ng"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "start": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng serve --port 4201",
+                "runCommand": "npm run start"
+              },
+              "options": {
+                "script": "start"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng build",
+                "runCommand": "npm run build"
+              },
+              "options": {
+                "script": "build"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "watch": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng build --watch --configuration development",
+                "runCommand": "npm run watch"
+              },
+              "options": {
+                "script": "watch"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng test",
+                "runCommand": "npm run test"
+              },
+              "options": {
+                "script": "test"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "implicitDependencies": []
+        }
+      },
+      "dashboard": {
+        "name": "dashboard",
+        "type": "app",
+        "data": {
+          "root": "dashboard",
+          "name": "dashboard",
+          "tags": [
+            "npm:private"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "ng",
+                "start",
+                "build",
+                "watch",
+                "test"
+              ]
+            },
+            "js": {
+              "packageName": "dashboard",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "targets": {
+            "ng": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng",
+                "runCommand": "npm run ng"
+              },
+              "options": {
+                "script": "ng"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "start": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng serve --port 4203",
+                "runCommand": "npm run start"
+              },
+              "options": {
+                "script": "start"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng build",
+                "runCommand": "npm run build"
+              },
+              "options": {
+                "script": "build"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "watch": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng build --watch --configuration development",
+                "runCommand": "npm run watch"
+              },
+              "options": {
+                "script": "watch"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng test",
+                "runCommand": "npm run test"
+              },
+              "options": {
+                "script": "test"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "implicitDependencies": []
+        }
+      },
+      "admin": {
+        "name": "admin",
+        "type": "app",
+        "data": {
+          "root": "admin",
+          "name": "admin",
+          "tags": [
+            "npm:private"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "ng",
+                "start",
+                "build",
+                "watch",
+                "test"
+              ]
+            },
+            "js": {
+              "packageName": "admin",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "targets": {
+            "ng": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng",
+                "runCommand": "npm run ng"
+              },
+              "options": {
+                "script": "ng"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "start": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng serve --port 4202",
+                "runCommand": "npm run start"
+              },
+              "options": {
+                "script": "start"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng build",
+                "runCommand": "npm run build"
+              },
+              "options": {
+                "script": "build"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "watch": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng build --watch --configuration development",
+                "runCommand": "npm run watch"
+              },
+              "options": {
+                "script": "watch"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng test",
+                "runCommand": "npm run test"
+              },
+              "options": {
+                "script": "test"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "implicitDependencies": []
+        }
+      },
+      "shell": {
+        "name": "shell",
+        "type": "app",
+        "data": {
+          "root": "shell",
+          "name": "shell",
+          "tags": [
+            "npm:private"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "ng",
+                "start",
+                "build",
+                "watch",
+                "test"
+              ]
+            },
+            "js": {
+              "packageName": "shell",
+              "packageVersion": "0.0.0",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "targets": {
+            "ng": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng",
+                "runCommand": "npm run ng"
+              },
+              "options": {
+                "script": "ng"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "start": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng serve",
+                "runCommand": "npm run start"
+              },
+              "options": {
+                "script": "start"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "build": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng build",
+                "runCommand": "npm run build"
+              },
+              "options": {
+                "script": "build"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "watch": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng build --watch --configuration development",
+                "runCommand": "npm run watch"
+              },
+              "options": {
+                "script": "watch"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "executor": "nx:run-script",
+              "metadata": {
+                "scriptContent": "ng test",
+                "runCommand": "npm run test"
+              },
+              "options": {
+                "script": "test"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "implicitDependencies": []
+        }
+      }
+    },
+    "dependencies": {
+      "@shophub/shared-user-state": [],
+      "online-shopping": [],
+      "dashboard": [],
+      "admin": [],
+      "shell": []
+    }
+  }
+}

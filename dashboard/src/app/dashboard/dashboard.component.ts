@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { UserStateService } from '../services/user-state.service';
 
 export interface StatMetric {
   title: string;
@@ -36,13 +37,21 @@ export interface RecentTransaction {
         <div>
           <div class="dash-tag">
             <span class="live-dot"></span>
-            Real-Time Analytics
+            Real-Time Analytics • Monorepo Live Sync
           </div>
           <h1 class="dash-title">Platform Performance & Statistics</h1>
-          <p class="dash-subtitle">Consolidated operational metrics, sales volume, and transaction history.</p>
+          <p class="dash-subtitle">Consolidated operational metrics, sales volume, and live administrator oversight.</p>
         </div>
 
         <div class="header-actions">
+          <div class="admin-chip" title="Active Admin synchronized across Micro-Frontends">
+            <span class="admin-avatar">{{ userState.user().avatarText }}</span>
+            <div class="admin-info">
+              <span class="admin-name">{{ userState.user().name }}</span>
+              <span class="admin-role">{{ userState.user().role }}</span>
+            </div>
+          </div>
+
           <div class="timeframe-selector">
             @for (tf of timeframes; track tf) {
               <button
@@ -629,9 +638,55 @@ export interface RecentTransaction {
       color: #fbbf24;
       border: 1px solid rgba(245, 158, 11, 0.3);
     }
+
+    /* Admin Chip Styles */
+    .admin-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px 6px 8px;
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: var(--radius-full);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .admin-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #6366f1, #06b6d4);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .admin-info {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .admin-name {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .admin-role {
+      font-size: 10px;
+      color: #a5b4fc;
+      line-height: 1.2;
+    }
   `]
 })
 export class DashboardComponent {
+  readonly userState = inject(UserStateService);
+
   selectedTimeframe = signal('Last 7 Days');
   timeframes = ['Today', 'Last 7 Days', 'Last 30 Days', 'Quarter'];
   isRefreshing = signal(false);

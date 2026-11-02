@@ -54,6 +54,36 @@
         </a>
       </nav>
 
+      <!-- User Profile Chip & Fast Edit (Singleton Cross-MFE Data) -->
+      <div class="user-chip-container">
+        @if (!isEditingUser) {
+          <div class="user-chip" (click)="startEdit()" title="Click to edit user profile across all MFEs">
+            <div class="user-avatar">{{ userState.user().avatarText }}</div>
+            <div class="user-meta">
+              <span class="user-name">{{ userState.user().name }}</span>
+              <span class="user-role">{{ userState.user().role }}</span>
+            </div>
+            <span class="edit-badge">✏️ Edit</span>
+          </div>
+        } @else {
+          <div class="user-edit-box">
+            <input 
+              #nameInput
+              type="text" 
+              class="user-edit-input" 
+              [value]="editName" 
+              (input)="editName = nameInput.value"
+              (keydown.enter)="saveEdit()"
+              (keydown.escape)="cancelEdit()"
+              placeholder="Enter name..." 
+              autofocus
+            />
+            <button class="user-edit-btn save" (click)="saveEdit()" title="Save">✓</button>
+            <button class="user-edit-btn cancel" (click)="cancelEdit()" title="Cancel">✕</button>
+          </div>
+        }
+      </div>
+
       <!-- System Architecture Indicator -->
       <div class="system-status">
         <span class="pulse-indicator"></span>

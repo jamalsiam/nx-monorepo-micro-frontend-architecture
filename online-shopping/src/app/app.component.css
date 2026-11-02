@@ -96,6 +96,47 @@
 .search-hero {
   margin-bottom: 28px;
   max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-welcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  color: #e0e7ff;
+  margin-bottom: 16px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.15);
+}
+
+.user-avatar-mini {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sync-tag {
+  font-size: 10.5px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  font-weight: 700;
+  border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 .hero-title {

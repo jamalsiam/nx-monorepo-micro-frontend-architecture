@@ -19,6 +19,11 @@
   <!-- Hero & Main Search Section -->
   <section class="search-section">
     <div class="search-hero">
+      <div class="user-welcome-badge">
+        <span class="user-avatar-mini">{{ userState.user().avatarText }}</span>
+        <span>Welcome, <strong>{{ userState.user().name }}</strong> ({{ userState.user().role }})</span>
+        <span class="sync-tag">⚡ Live Monorepo Sync</span>
+      </div>
       <h1 class="hero-title">Explore Premium Catalog</h1>
       <p class="hero-subtitle">Instant real-time search & smart filtering across tech, workspace, and audio gear</p>
     </div>
