@@ -4,6 +4,7 @@ module.exports = withNativeFederation({
 
   shared: {
     ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+    '@shophub/shared-user-state': { singleton: true, strictVersion: false },
   },
 
   skip: [
