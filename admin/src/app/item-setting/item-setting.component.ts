@@ -1,11 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TextInputComponent } from '@shophub/shared-ui';
 
 @Component({
   selector: 'app-item-setting',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TextInputComponent],
   template: `
     <div class="page-container">
       <div class="page-header">
@@ -32,10 +33,13 @@ import { FormsModule } from '@angular/forms';
 
           <div class="card-body">
             <div class="input-grid">
-              <div class="form-group">
-                <label>Low Stock Warning Limit</label>
-                <input type="number" [(ngModel)]="lowStockLimit" class="input" min="1" max="50" />
-              </div>
+              <shophub-text-input
+                label="Low Stock Warning Limit"
+                type="number"
+                icon="⚠️"
+                placeholder="5"
+                [(value)]="lowStockLimit"
+              ></shophub-text-input>
 
               <div class="form-group">
                 <label>Primary Currency</label>
@@ -84,15 +88,21 @@ import { FormsModule } from '@angular/forms';
 
           <div class="card-body">
             <div class="input-grid">
-              <div class="form-group">
-                <label>Standard Tax Rate (%)</label>
-                <input type="number" [(ngModel)]="taxRate" class="input" min="0" max="30" />
-              </div>
+              <shophub-text-input
+                label="Standard Tax Rate (%)"
+                type="number"
+                icon="📊"
+                placeholder="15"
+                [(value)]="taxRate"
+              ></shophub-text-input>
 
-              <div class="form-group">
-                <label>Free Shipping Threshold ($)</label>
-                <input type="number" [(ngModel)]="freeShippingMin" class="input" min="0" />
-              </div>
+              <shophub-text-input
+                label="Free Shipping Threshold ($)"
+                type="number"
+                icon="🚚"
+                placeholder="150"
+                [(value)]="freeShippingMin"
+              ></shophub-text-input>
             </div>
 
             <div class="switch-row">

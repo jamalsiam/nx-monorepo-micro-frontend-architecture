@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@shophub/shared-user-state": ["libs/shared/user-state/src/index.ts"]
+      "@shophub/shared-user-state": ["libs/shared/user-state/src/index.ts"],
+      "@shophub/shared-ui": ["libs/shared/ui/src/index.ts"],
+      "@angular/*": ["./node_modules/@angular/*"],
+      "tslib": ["./node_modules/tslib"]
     }
   },
   "exclude": ["node_modules", "tmp", "dist"]

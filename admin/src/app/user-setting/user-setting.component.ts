@@ -2,11 +2,12 @@ import { Component, inject, signal, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UserStateService } from '../services/user-state.service';
+import { TextInputComponent } from '@shophub/shared-ui';
 
 @Component({
   selector: 'app-user-setting',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TextInputComponent],
   template: `
     <div class="page-container">
       <div class="page-header">
@@ -41,15 +42,20 @@ import { UserStateService } from '../services/user-state.service';
             </div>
 
             <div class="input-grid">
-              <div class="form-group">
-                <label>Admin Name</label>
-                <input type="text" [(ngModel)]="name" class="input" placeholder="Admin Name" />
-              </div>
+              <shophub-text-input
+                label="Admin Name"
+                icon="👤"
+                placeholder="Admin Name"
+                [(value)]="name"
+              ></shophub-text-input>
 
-              <div class="form-group">
-                <label>Official Email</label>
-                <input type="email" [(ngModel)]="email" class="input" placeholder="Official Email" />
-              </div>
+              <shophub-text-input
+                label="Official Email"
+                type="email"
+                icon="✉️"
+                placeholder="Official Email"
+                [(value)]="email"
+              ></shophub-text-input>
             </div>
 
             <div class="form-group">

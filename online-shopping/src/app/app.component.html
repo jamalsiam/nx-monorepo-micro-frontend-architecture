@@ -28,22 +28,15 @@
       <p class="hero-subtitle">Instant real-time search & smart filtering across tech, workspace, and audio gear</p>
     </div>
 
-    <!-- Search Input Bar -->
+    <!-- Search Input Bar (Nx Shared UI Library: @shophub/shared-ui) -->
     <div class="search-bar-wrapper">
-      <div class="search-input-box" [class.has-text]="searchTerm()">
-        <span class="search-icon">🔍</span>
-        <input
-          type="text"
-          class="search-input"
-          placeholder="Search by name, category, or tags (e.g. Wireless, 4K, Audio)..."
-          [ngModel]="searchTerm()"
-          (ngModelChange)="searchTerm.set($event)"
-          aria-label="Search items"
-        />
-        @if (searchTerm()) {
-          <button class="clear-btn" (click)="clearSearch()" title="Clear search">✕</button>
-        }
-      </div>
+      <shophub-text-input
+        placeholder="Search by name, category, or tags (e.g. Wireless, 4K, Audio)..."
+        icon="🔍"
+        [clearable]="true"
+        [value]="searchTerm()"
+        (valueChange)="searchTerm.set($event)"
+      ></shophub-text-input>
     </div>
 
     <!-- Filter Controls Bar -->
