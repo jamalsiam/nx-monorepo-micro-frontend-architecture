@@ -1,0 +1,69 @@
+<div class="shell-layout">
+  <!-- Master Shell Navigation Header -->
+  <header class="master-header">
+    <div class="header-inner">
+      <!-- Main Brand Logo -->
+      <a routerLink="/" class="brand-link">
+        <div class="brand-icon">⚡</div>
+        <div class="brand-text">
+          <div class="brand-title">Shophub Platform</div>
+          <div class="brand-sub">Micro-Frontend Orchestrator</div>
+        </div>
+      </a>
+
+      <!-- Micro-Frontend Navigation Tabs -->
+      <nav class="mfe-nav" aria-label="Micro-Frontend Navigation">
+        <a
+          routerLink="/catalog"
+          routerLinkActive="active"
+          class="mfe-nav-link"
+        >
+          <span class="mfe-icon">🛍️</span>
+          <span class="mfe-label">Store & Catalog</span>
+          <span class="mfe-port-tag">4201</span>
+        </a>
+
+        <a
+          routerLink="/dashboard"
+          routerLinkActive="active"
+          class="mfe-nav-link"
+        >
+          <span class="mfe-icon">📊</span>
+          <span class="mfe-label">Statistics & Analytics</span>
+          <span class="mfe-port-tag">4203</span>
+        </a>
+
+        <a
+          routerLink="/admin/user-setting"
+          routerLinkActive="active"
+          class="mfe-nav-link"
+        >
+          <span class="mfe-icon">👤</span>
+          <span class="mfe-label">User Setting</span>
+          <span class="mfe-port-tag">4202</span>
+        </a>
+
+        <a
+          routerLink="/admin/item-setting"
+          routerLinkActive="active"
+          class="mfe-nav-link"
+        >
+          <span class="mfe-icon">📦</span>
+          <span class="mfe-label">Item Setting</span>
+          <span class="mfe-port-tag">4202</span>
+        </a>
+      </nav>
+
+      <!-- System Architecture Indicator -->
+      <div class="system-status">
+        <span class="pulse-indicator"></span>
+        <span class="status-label">Host Shell :4200</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Routed Remote Micro-Frontend Content Viewport -->
+  <main class="remote-viewport">
+    <router-outlet></router-outlet>
+  </main>
+</div>
