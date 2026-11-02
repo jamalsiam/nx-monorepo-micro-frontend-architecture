@@ -1,0 +1,45 @@
+<div class="admin-shell">
+  <!-- Top Navigation Header -->
+  <header class="top-header">
+    <div class="header-container">
+      <div class="brand">
+        <span class="brand-icon">⚙️</span>
+        <div class="brand-info">
+          <span class="brand-title">Admin Hub</span>
+          <span class="brand-sub">Control Center</span>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs with routerLink -->
+      <nav class="nav-tabs" aria-label="Admin Navigation">
+        <a
+          routerLink="/user-setting"
+          routerLinkActive="active"
+          class="nav-tab"
+        >
+          <span class="tab-icon">👤</span>
+          <span>User Setting</span>
+        </a>
+
+        <a
+          routerLink="/item-setting"
+          routerLinkActive="active"
+          class="nav-tab"
+        >
+          <span class="tab-icon">📦</span>
+          <span>Item Setting</span>
+        </a>
+      </nav>
+
+      <div class="user-chip">
+        <span class="status-dot"></span>
+        <span class="user-name">Jamal Siam</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Router Outlet Container -->
+  <main class="content-wrapper">
+    <router-outlet></router-outlet>
+  </main>
+</div>
